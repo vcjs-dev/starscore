@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.2.0
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.1.0...v1.2.0)
+
+### 🚀 Enhancements
+
+- Support `readonly`, `disabled` and `initialValue` config ([5b4648c](https://github.com/vcjs-dev/starscore/commit/5b4648c))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.1.0
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.0.3...v1.1.0)
