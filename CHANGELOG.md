@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.0.3...v1.1.0)
+
+### 🚀 Enhancements
+
+- Support `clearable` option ([659b790](https://github.com/vcjs-dev/starscore/commit/659b790))
+
+### 🏡 Chore
+
+- **docs:** Update readme ([5ce89b6](https://github.com/vcjs-dev/starscore/commit/5ce89b6))
+- Score render via score value ([1cfd31c](https://github.com/vcjs-dev/starscore/commit/1cfd31c))
+- Add `onChange` event handler ([54e2377](https://github.com/vcjs-dev/starscore/commit/54e2377))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.0.3
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.0.2...v1.0.3)
