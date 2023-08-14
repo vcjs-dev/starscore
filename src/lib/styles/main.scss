@@ -1,0 +1,35 @@
+.starscore-container {
+  display: inline-flex;
+
+  .starscore-radio-group {
+    display: flex;
+  }
+
+  .starscore-radio {
+    margin-right: var(--starscore-gutter);
+    position: relative;
+    cursor: pointer;
+   
+    svg {
+      font-size: var(--starscore-size);
+      fill: currentColor;
+    }
+
+    &__icon, &__void-icon {
+      display: inline-block;
+    }
+
+    &__void-icon {
+      color: var(--starscore-void-color);
+    }
+
+    &__icon {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      overflow: hidden;
+      color: var(--starscore-color);
+    }
+
+  }
+}
