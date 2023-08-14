@@ -15,7 +15,8 @@
       "import": "./lib/starscore.js",
       "require": "./lib/starscore.cjs",
       "types": "./lib/index.d.ts"
-    }
+    },
+    "./lib/style.css": "./lib/style.css"
   },
   "keywords": [
     "star",
@@ -25,6 +26,10 @@
   "files": [
     "lib"
   ],
+  "repository": {
+    "url": "https://github.com/vcjs-dev/starscore"
+  },
+  "homepage": "https://github.com/vcjs-dev/starscore",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -60,6 +65,7 @@
     "prettier": "^3.0.0",
     "rollup": "^3.28.0",
     "rollup-plugin-dts": "^5.3.1",
+    "sass": "^1.65.1",
     "typescript": "~5.1.6",
     "vite": "^4.4.6",
     "vitest": "^0.33.0",
