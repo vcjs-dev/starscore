@@ -31,11 +31,38 @@ class Starscore implements StarscoreInstance {
       { score: 4, description: '' },
       { score: 5, description: '' },
     ],
+    onChange: () => {},
   }
 
   container: HTMLElement | null = null
 
   value: number = 0
+
+  setValue(value: number) {
+    if (value < 0) {
+      this.value = 0
+    } else if (value > this.options.count) {
+      this.value = this.options.count
+    } else {
+      this.value = value
+    }
+
+    this.render()
+
+    this.options.onChange && this.options.onChange(this.value)
+
+    return this
+  }
+
+  constructor(opts: StarscoreOptions) {
+    this.options = Object.assign(this.options, opts)
+
+    this.clickListener = this.clickListener.bind(this)
+
+    this.initCSSVars()
+
+    this.render()
+  }
 
   get scoreItems() {
     const res = []
@@ -61,18 +88,28 @@ class Starscore implements StarscoreInstance {
     return res
   }
 
-  constructor(opts: StarscoreOptions) {
-    this.options = Object.assign(this.options, opts)
+  getScoreItemFromChild(target: HTMLElement): HTMLElement | null {
+    if (target.dataset.score) {
+      return target
+    }
 
-    this.clickListener = this.clickListener.bind(this)
+    if (target.parentElement) {
+      return this.getScoreItemFromChild(target.parentElement)
+    }
 
-    this.initCSSVars()
-
-    this.render()
+    return null
   }
 
   clickListener(e: MouseEvent) {
-    console.log(e)
+    const target = e.target as HTMLElement
+
+    const scoreElement = this.getScoreItemFromChild(target)
+
+    if (scoreElement) {
+      const scoreValue = Number(scoreElement.dataset.score)
+
+      this.setValue(scoreValue)
+    }
   }
 
   registerListeners() {

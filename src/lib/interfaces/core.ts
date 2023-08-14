@@ -19,6 +19,7 @@ export interface StarscoreOptions {
   readonly?: boolean
   disabled?: boolean
   scoreDetails?: StarscoreDetail[] | StarscoreDetailFn
+  onChange?: (score: number) => void
 }
 
 export interface ScoreItemsRecord {
@@ -32,6 +33,10 @@ export interface StarscoreInstance {
   container: HTMLElement | null
 
   get scoreItems(): ScoreItemsRecord[]
+
+  setValue(value: number): StarscoreInstance
+
+  getScoreItemFromChild(target: HTMLElement): HTMLElement | null
 
   initCSSVars(): void
 

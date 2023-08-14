@@ -18,6 +18,9 @@ const init = () => {
   if (starscoreContainer.value) {
     starscoreInstance.value = createStarscore({
       container: starscoreContainer.value,
+      onChange(score) {
+        console.log(score)
+      },
     })
 
     console.log(starscoreInstance.value)

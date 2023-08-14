@@ -3,13 +3,14 @@
 
   .starscore-radio-group {
     display: flex;
+    height: var(--starscore-size);
   }
 
   .starscore-radio {
     margin-right: var(--starscore-gutter);
     position: relative;
     cursor: pointer;
-   
+
     svg {
       font-size: var(--starscore-size);
       fill: currentColor;
@@ -17,6 +18,8 @@
 
     &__icon, &__void-icon {
       display: inline-block;
+      width: var(--starscore-size);
+      height: var(--starscore-size);
     }
 
     &__void-icon {
