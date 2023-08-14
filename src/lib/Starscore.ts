@@ -21,6 +21,7 @@ class Starscore implements StarscoreInstance {
     disabledColor: '#c8c9cc',
     icon: '',
     voidIcon: '',
+    clearable: true,
     readonly: false,
     disabled: false,
     allowHalf: false,
@@ -108,7 +109,10 @@ class Starscore implements StarscoreInstance {
     if (scoreElement) {
       const scoreValue = Number(scoreElement.dataset.score)
 
-      this.setValue(scoreValue)
+      const value =
+        this.options.clearable && this.value === scoreValue ? 0 : scoreValue
+
+      this.setValue(value)
     }
   }
 

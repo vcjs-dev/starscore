@@ -16,6 +16,7 @@ export interface StarscoreOptions {
   icon?: string
   voidIcon?: string
   allowHalf?: boolean
+  clearable?: boolean
   readonly?: boolean
   disabled?: boolean
   scoreDetails?: StarscoreDetail[] | StarscoreDetailFn
