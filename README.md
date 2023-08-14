@@ -11,6 +11,17 @@ A star-score library for web app.
 
 # Installation
 
+```bash
+# pnpm
+$ pnpm add starscore
+
+# yarn
+$ yarn add starscore
+
+# npm
+$ npm i starscore
+```
+
 # Usage
 
 1. Imports style.
