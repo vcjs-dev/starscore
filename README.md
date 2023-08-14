@@ -49,6 +49,11 @@ const starscoreInstance = createStarscore({
 | Prop | Type | Default Value | Description |
 | :---: | :---: | :---: | :---: |
 | `container` | `string`,`HTMLElement` | `''` | Specify the container of star-score. |
+| `initialValue` | `number` | `0` | Set a initialization score. |
+| `clearable` | `boolean` | `true` | Whether to allow clear when click again. |
+| `readonly` | `boolean` | `false` | Whether to be readonly. |
+| `disabled` | `boolean` | `false` | Whether to disable rate. |
+| `onChange` | `Function` | - | Event triggered when the current score changes. `(currentScore: number) => void` |
 
 # APIs
 

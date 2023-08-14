@@ -1,11 +1,6 @@
 .starscore-container {
   display: inline-flex;
 
-  .starscore-radio-group {
-    display: flex;
-    height: var(--starscore-size);
-  }
-
   .starscore-radio {
     margin-right: var(--starscore-gutter);
     position: relative;
@@ -16,7 +11,8 @@
       fill: currentColor;
     }
 
-    &__icon, &__void-icon {
+    &__icon,
+    &__void-icon {
       display: inline-block;
       width: var(--starscore-size);
       height: var(--starscore-size);
@@ -33,6 +29,27 @@
       overflow: hidden;
       color: var(--starscore-color);
     }
+  }
 
+  .starscore-radio-group {
+    display: flex;
+    height: var(--starscore-size);
+
+    &.readonly {
+      .starscore-radio {
+        cursor: default;
+      }
+    }
+
+    &.disabled {
+      .starscore-radio {
+        cursor: not-allowed;
+
+        &__icon,
+        &__void-icon {
+          color: var(--starscore-disabled-color);
+        }
+      }
+    }
   }
 }

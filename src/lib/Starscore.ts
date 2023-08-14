@@ -14,6 +14,7 @@ class Starscore implements StarscoreInstance {
   options: Required<StarscoreOptions> = {
     container: '',
     count: 5,
+    initialValue: 0,
     size: '20px',
     gutter: '4px',
     color: '#ee0a24',
@@ -57,6 +58,8 @@ class Starscore implements StarscoreInstance {
 
   constructor(opts: StarscoreOptions) {
     this.options = Object.assign(this.options, opts)
+
+    this.value = this.options.initialValue
 
     this.clickListener = this.clickListener.bind(this)
 
@@ -102,6 +105,8 @@ class Starscore implements StarscoreInstance {
   }
 
   clickListener(e: MouseEvent) {
+    if (this.options.disabled || this.options.readonly) return
+
     const target = e.target as HTMLElement
 
     const scoreElement = this.getScoreItemFromChild(target)
@@ -161,8 +166,11 @@ class Starscore implements StarscoreInstance {
       return res
     }, '')
 
+    const disabled = this.options.disabled ? 'disabled' : ''
+    const readonly = this.options.readonly ? 'readonly' : ''
+
     return `
-      <div class="${CONSTANTS.scoreWrapperClassName}">${radios}</div>
+      <div class="${CONSTANTS.scoreWrapperClassName} ${disabled} ${readonly}">${radios}</div>
     `
   }
 
