@@ -78,7 +78,10 @@ class Starscore implements StarscoreInstance {
 
   setOptions(opts: StarscoreOptions, reRender?: boolean) {
     this.options = Object.assign(this.options, opts)
-    reRender && this.render()
+    if (reRender) {
+      this.initCSSVars()
+      this.render()
+    }
     return this
   }
 

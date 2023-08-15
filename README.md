@@ -96,6 +96,14 @@ starscoreInstance.setOptions({
 
 > The second parameter specifies whether to re-render, defaults is `false`.
 
+## destory
+
+Destory the star-score instance.
+
+```ts
+starscoreInstance.destory()
+```
+
 # CHANGE LOGS
 
 See [change log](./CHANGELOG.md) here.

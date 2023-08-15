@@ -5,6 +5,8 @@ interface StarscoreDetail {
 
 type StarscoreDetailFn = (score: number) => string
 
+type StarscoreIconTypes = 'star' | 'heart'
+
 interface StarscoreOptions {
   container: string | HTMLElement
   count?: number
@@ -14,6 +16,7 @@ interface StarscoreOptions {
   gutter?: string | number
   voidColor?: string
   disabledColor?: string
+  type?: StarscoreIconTypes
   icon?: string
   voidIcon?: string
   allowHalf?: boolean
@@ -36,7 +39,13 @@ interface StarscoreInstance {
 
   get scoreItems(): ScoreItemsRecord[]
 
+  setOptions(opts: StarscoreOptions, reRender?: boolean): StarscoreInstance
+
   setValue(value: number): StarscoreInstance
+
+  getValue(): number
+
+  emitChange(newValue: number): void
 
   getScoreItemFromChild(target: HTMLElement): HTMLElement | null
 
@@ -47,6 +56,10 @@ interface StarscoreInstance {
   generateRadioGroupHTML(): string
 
   generateRadioHTML(item: ScoreItemsRecord): string
+
+  getIcon(): string
+
+  getVoidIcon(): string
 
   render(): void
 
