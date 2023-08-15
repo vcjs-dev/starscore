@@ -8,6 +8,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "moduleResolution": "Node"
+    "moduleResolution": "node"
   }
 }

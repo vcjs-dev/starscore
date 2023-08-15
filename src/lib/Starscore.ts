@@ -111,14 +111,19 @@ class Starscore implements StarscoreInstance {
     return builtInIcons[this.options.type].voidIcon
   }
 
+  get renderValue() {
+    return this.value
+  }
+
   get scoreItems() {
     const res = []
+    const score = this.renderValue
 
     for (let i = 1; i <= this.options.count; i++) {
-      const percent = i - this.value
+      const percent = i - score
 
       const proportion =
-        this.value >= i
+        score >= i
           ? 1
           : percent >= 1
           ? 0
@@ -126,7 +131,7 @@ class Starscore implements StarscoreInstance {
 
       res.push({
         score: i,
-        active: this.value >= i,
+        active: score >= i,
         proportion,
         width: `${proportion * 100}%`,
       })
@@ -154,8 +159,8 @@ class Starscore implements StarscoreInstance {
     }
   }
 
-  clickListener(e: MouseEvent) {
-    if (this.options.disabled || this.options.readonly) return
+  scoreValueFormat(e: MouseEvent): number | null {
+    if (this.options.disabled || this.options.readonly) return null
 
     const target = e.target as HTMLElement
 
@@ -173,6 +178,15 @@ class Starscore implements StarscoreInstance {
       const value =
         this.options.clearable && this.value === scoreValue ? 0 : scoreValue
 
+      return value
+    }
+
+    return null
+  }
+
+  clickListener(e: MouseEvent) {
+    const value = this.scoreValueFormat(e)
+    if (value !== null) {
       this.emitChange(value)
     }
   }
