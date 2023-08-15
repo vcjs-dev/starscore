@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.4.1
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.4.0...v1.4.1)
+
+### 🩹 Fixes
+
+- Exports types ([da290aa](https://github.com/vcjs-dev/starscore/commit/da290aa))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.4.0
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.3.1...v1.4.0)
