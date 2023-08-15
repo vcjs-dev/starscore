@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.2.0...v1.3.0)
+
+### 🚀 Enhancements
+
+- Support `type`, `icon`, `voidIcon` and `allowHalf` feature ([ef5618b](https://github.com/vcjs-dev/starscore/commit/ef5618b))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.2.0
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.1.0...v1.2.0)
