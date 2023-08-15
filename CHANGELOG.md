@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.4.0
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.3.1...v1.4.0)
+
+### 🚀 Enhancements
+
+- Add example, update clearable default value to `false` ([f924305](https://github.com/vcjs-dev/starscore/commit/f924305))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.3.1
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.3.0...v1.3.1)
