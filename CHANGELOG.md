@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.3.1
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.3.0...v1.3.1)
+
+### 🩹 Fixes
+
+- `setOptions` re-render init CSS vars ([8100eb8](https://github.com/vcjs-dev/starscore/commit/8100eb8))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.3.0
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.2.0...v1.3.0)
