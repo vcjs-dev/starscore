@@ -1,4 +1,14 @@
-# starscore
+<p align="center">
+  <a href="https://www.npmjs.org/package/starscore">
+    <img src="https://img.shields.io/npm/v/starscore.svg">
+  </a>
+  <a href="https://npmcharts.com/compare/starscore?minimal=true">
+    <img src="https://img.shields.io/npm/dm/starscore.svg">
+  </a>
+  <br>
+</p>
+
+# Starscore
 
 A star-score library for web app.
 
@@ -58,7 +68,7 @@ const starscoreInstance = createStarscore({
 | `type` | `string` | `'star'` | Specify this to use a built-in icon. You can use `star` or `heart`. |
 | `icon` | `string` | - | Specify this to change SVG string of the selected icon. |
 | `voidIcon` | `string` | - | Specify this to change SVG string of the void icon. |
-| `clearable` | `boolean` | `true` | Whether to allow clear when click again. |
+| `clearable` | `boolean` | `false` | Whether to allow clear when click again. |
 | `readonly` | `boolean` | `false` | Whether to be readonly. |
 | `disabled` | `boolean` | `false` | Whether to disable score. |
 | `allowHalf` | `boolean` | `false` | Whether to allow half star. |

@@ -40,7 +40,7 @@ class Starscore implements StarscoreInstance {
     icon: '',
     type: 'star',
     voidIcon: '',
-    clearable: true,
+    clearable: false,
     readonly: false,
     disabled: false,
     allowHalf: false,
