@@ -8,6 +8,7 @@ type StarscoreDetailFn = (score: number) => string
 interface StarscoreOptions {
   container: string | HTMLElement
   count?: number
+  initialValue?: number
   size?: string | number
   color?: string
   gutter?: string | number

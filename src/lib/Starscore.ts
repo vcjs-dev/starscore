@@ -3,12 +3,29 @@ import type {
   CreateStarscore,
   StarscoreOptions,
   ScoreItemsRecord,
+  StarscoreIconTypes,
 } from './interfaces/core'
 import { CONSTANTS } from './CONSTANTS'
 import { addClass, css } from 'fourdom'
+import { safetyNumberToPx } from './utils'
 import StarIcon from './icons/star.svg?raw'
 import VoidStarIcon from './icons/void-star.svg?raw'
-import { safetyNumberToPx } from './utils'
+import HeartIcon from './icons/heart.svg?raw'
+import VoidHeartIcon from './icons/void-heart.svg?raw'
+
+export const builtInIcons: Record<
+  StarscoreIconTypes,
+  { icon: string; voidIcon: string }
+> = {
+  star: {
+    icon: StarIcon,
+    voidIcon: VoidStarIcon,
+  },
+  heart: {
+    icon: HeartIcon,
+    voidIcon: VoidHeartIcon,
+  },
+}
 
 class Starscore implements StarscoreInstance {
   options: Required<StarscoreOptions> = {
@@ -21,6 +38,7 @@ class Starscore implements StarscoreInstance {
     voidColor: '#c8c9cc',
     disabledColor: '#c8c9cc',
     icon: '',
+    type: 'star',
     voidIcon: '',
     clearable: true,
     readonly: false,
@@ -51,8 +69,16 @@ class Starscore implements StarscoreInstance {
 
     this.render()
 
-    this.options.onChange && this.options.onChange(this.value)
+    return this
+  }
 
+  getValue() {
+    return this.value
+  }
+
+  setOptions(opts: StarscoreOptions, reRender?: boolean) {
+    this.options = Object.assign(this.options, opts)
+    reRender && this.render()
     return this
   }
 
@@ -66,6 +92,20 @@ class Starscore implements StarscoreInstance {
     this.initCSSVars()
 
     this.render()
+  }
+
+  getIcon() {
+    if (this.options.icon) {
+      return this.options.icon
+    }
+
+    return builtInIcons[this.options.type].icon
+  }
+
+  getVoidIcon() {
+    if (this.options.voidIcon) return this.options.voidIcon
+
+    return builtInIcons[this.options.type].voidIcon
   }
 
   get scoreItems() {
@@ -104,20 +144,33 @@ class Starscore implements StarscoreInstance {
     return null
   }
 
+  emitChange(newValue: number): void {
+    if (this.value !== newValue) {
+      this.options.onChange && this.options.onChange(newValue)
+      this.setValue(newValue)
+    }
+  }
+
   clickListener(e: MouseEvent) {
     if (this.options.disabled || this.options.readonly) return
 
     const target = e.target as HTMLElement
 
+    const offsetX = e.offsetX
+
     const scoreElement = this.getScoreItemFromChild(target)
 
     if (scoreElement) {
-      const scoreValue = Number(scoreElement.dataset.score)
+      let scoreValue = Number(scoreElement.dataset.score)
+
+      if (this.options.allowHalf && offsetX <= scoreValue / 2) {
+        scoreValue = scoreValue - 0.5
+      }
 
       const value =
         this.options.clearable && this.value === scoreValue ? 0 : scoreValue
 
-      this.setValue(value)
+      this.emitChange(value)
     }
   }
 
@@ -154,8 +207,12 @@ class Starscore implements StarscoreInstance {
   generateRadioHTML(item: ScoreItemsRecord) {
     return `
       <div class="${CONSTANTS.scoreItemClassName}" data-score="${item.score}">
-        <span class="${CONSTANTS.scoreVoidIconClassName}">${VoidStarIcon}</span>
-        <span class="${CONSTANTS.scoreIconClassName}" style="width:${item.width}">${StarIcon}</span>
+        <span class="${
+          CONSTANTS.scoreVoidIconClassName
+        }">${this.getVoidIcon()}</span>
+        <span class="${CONSTANTS.scoreIconClassName}" style="width:${
+          item.width
+        }">${this.getIcon()}</span>
       </div>
     `
   }

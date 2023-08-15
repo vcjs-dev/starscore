@@ -21,6 +21,8 @@ const init = () => {
       disabled: false,
       readonly: false,
       initialValue: 3,
+      type: 'heart',
+      allowHalf: true,
       onChange(score) {
         console.log(score)
       },
