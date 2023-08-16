@@ -4,4 +4,5 @@ export enum CONSTANTS {
   scoreItemClassName = 'starscore-radio',
   scoreIconClassName = 'starscore-radio__icon',
   scoreVoidIconClassName = 'starscore-radio__void-icon',
+  scoreDescWrapperClassName = 'starscore-description',
 }

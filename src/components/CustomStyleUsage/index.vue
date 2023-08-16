@@ -4,7 +4,9 @@
       <StarScore />
 
       <template #code>
-        <pre class="lang-markup"><code>{{ StarScoreRaw }}</code></pre>
+        <pre
+          class="lang-markup"
+        ><code>{{ formatLibName(StarScoreRaw) }}</code></pre>
       </template>
     </DemoPanel>
   </div>
@@ -14,6 +16,7 @@
 import 'prismjs'
 import StarScore from './StarScore.vue'
 import StarScoreRaw from './StarScore.vue?raw'
+import { formatLibName } from '@/utils'
 </script>
 
 <script lang="ts">

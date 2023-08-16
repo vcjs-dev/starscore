@@ -72,6 +72,10 @@ const starscoreInstance = createStarscore({
 | `readonly` | `boolean` | `false` | Whether to be readonly. |
 | `disabled` | `boolean` | `false` | Whether to disable score. |
 | `allowHalf` | `boolean` | `false` | Whether to allow half star. |
+| `showDescription` | `boolean` | `false` | Whether to show current score description. |
+| `descriptionColor` | `string` | `#909399` | Specify this to change the color of current score description. |
+| `descriptionFontSize` | `string`, `number` | `13px` | Specify this to change the `font-size` of current score description. |
+| `scoreDetails` | `Function` | `() => ''` | Specify this to custom the desctiption content of current score. `currentScore: number` is the only parameter. |
 | `onChange` | `Function` | - | Event triggered when the current score changes. `(currentScore: number) => void` |
 
 # APIs

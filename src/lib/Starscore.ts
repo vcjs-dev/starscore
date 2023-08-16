@@ -44,13 +44,10 @@ class Starscore implements StarscoreInstance {
     readonly: false,
     disabled: false,
     allowHalf: false,
-    scoreDetails: [
-      { score: 1, description: '' },
-      { score: 2, description: '' },
-      { score: 3, description: '' },
-      { score: 4, description: '' },
-      { score: 5, description: '' },
-    ],
+    scoreDetails: () => '',
+    showDescription: false,
+    descriptionColor: '#909399',
+    descriptionFontSize: '13px',
     onChange: () => {},
   }
 
@@ -240,6 +237,10 @@ class Starscore implements StarscoreInstance {
       '--starscore-void-color': this.options.voidColor,
       '--starscore-disabled-color': this.options.disabledColor,
       '--starscore-gutter': safetyNumberToPx(this.options.gutter),
+      '--starscore-description-color': this.options.descriptionColor,
+      '--starscore-description-font-size': safetyNumberToPx(
+        this.options.descriptionFontSize,
+      ),
     })
   }
 
@@ -270,10 +271,31 @@ class Starscore implements StarscoreInstance {
     `
   }
 
+  generateScoreDescHTML() {
+    if (!this.options.showDescription) return ''
+
+    let descHTML = ''
+    if (Array.isArray(this.options.scoreDetails)) {
+      const item = this.options.scoreDetails.find(
+        (v) => v.score === this.renderValue,
+      )
+
+      if (item) {
+        descHTML = item.description
+      } else {
+        descHTML = ''
+      }
+    } else {
+      descHTML = this.options.scoreDetails(this.renderValue)
+    }
+
+    return `<div class="${CONSTANTS.scoreDescWrapperClassName}">${descHTML}</div>`
+  }
+
   render() {
     const container = this.getContainer()
 
-    const content = `${this.generateRadioGroupHTML()}`
+    const content = `${this.generateRadioGroupHTML()}${this.generateScoreDescHTML()}`
 
     addClass(container, CONSTANTS.containerClassName)
 

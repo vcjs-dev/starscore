@@ -3,7 +3,7 @@ export interface StarscoreDetail {
   description: string
 }
 
-export type StarscoreDetailFn = (score: number) => string
+export type StarscoreDetailFn = (currentScore: number) => string
 
 export type StarscoreIconTypes = 'star' | 'heart'
 
@@ -24,6 +24,9 @@ export interface StarscoreOptions {
   readonly?: boolean
   disabled?: boolean
   scoreDetails?: StarscoreDetail[] | StarscoreDetailFn
+  showDescription?: boolean
+  descriptionColor?: string
+  descriptionFontSize?: string | number
   onChange?: (score: number) => void
 }
 
@@ -70,6 +73,8 @@ export interface StarscoreInstance {
   generateRadioGroupHTML(): string
 
   generateRadioHTML(item: ScoreItemsRecord): string
+
+  generateScoreDescHTML(): string
 
   getIcon(): string
 

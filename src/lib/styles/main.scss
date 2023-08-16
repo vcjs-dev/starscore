@@ -1,5 +1,6 @@
 .starscore-container {
   display: inline-flex;
+  align-items: center;
 
   .starscore-radio {
     margin-right: var(--starscore-gutter);
@@ -51,5 +52,11 @@
         }
       }
     }
+  }
+
+  .starscore-description {
+    font-size: var(--starscore-description-font-size);
+    color: var(--starscore-description-color);
+    padding: 0 4px;
   }
 }

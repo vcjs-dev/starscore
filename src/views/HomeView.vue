@@ -10,6 +10,9 @@
       <CustomStyleUsage />
     </div>
     <div>
+      <ShowDescriptionUsage />
+    </div>
+    <div>
       <HalfStarUsage />
     </div>
     <div>
@@ -40,6 +43,7 @@ import ReadonlyUsage from '@/components/ReadonlyUsage/index.vue'
 import ClearableUsage from '@/components/ClearableUsage/index.vue'
 import ChangeEventUsage from '@/components/ChangeEventUsage/index.vue'
 import BuiltInTypeUsage from '@/components/BuiltInTypeUsage/index.vue'
+import ShowDescriptionUsage from '@/components/ShowDescriptionUsage/index.vue'
 </script>
 
 <style lang="scss" scoped>

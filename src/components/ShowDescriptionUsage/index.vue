@@ -1,14 +1,6 @@
 <template>
   <div class="">
-    <DemoPanel title="Clearable">
-      <template #description>
-        <div>
-          When the clearable prop is set to
-          <code class="language-markup">true</code>, clicking on the same value
-          again will reset the value to <code class="language-markup">0</code>.
-        </div>
-      </template>
-
+    <DemoPanel title="Show Description">
       <StarScore />
 
       <template #code>
@@ -30,6 +22,6 @@ import { formatLibName } from '@/utils'
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'ClearableUsage',
+  name: 'ShowDescriptionUsage',
 })
 </script>
