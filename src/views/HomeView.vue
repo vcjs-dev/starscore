@@ -48,7 +48,7 @@ import ShowDescriptionUsage from '@/components/ShowDescriptionUsage/index.vue'
 
 <style lang="scss" scoped>
 .home-main {
-  max-width: 1280px;
+  max-width: 980px;
   margin: 0 auto;
 }
 </style>

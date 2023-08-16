@@ -3,7 +3,7 @@ interface StarscoreDetail {
   description: string
 }
 
-type StarscoreDetailFn = (score: number) => string
+type StarscoreDetailFn = (currentScore: number) => string
 
 type StarscoreIconTypes = 'star' | 'heart'
 
@@ -24,6 +24,9 @@ interface StarscoreOptions {
   readonly?: boolean
   disabled?: boolean
   scoreDetails?: StarscoreDetail[] | StarscoreDetailFn
+  showDescription?: boolean
+  descriptionColor?: string
+  descriptionFontSize?: string | number
   onChange?: (score: number) => void
 }
 
@@ -39,6 +42,8 @@ interface StarscoreInstance {
 
   value: number
 
+  hoverValue: number | null
+
   get renderValue(): number
 
   get scoreItems(): ScoreItemsRecord[]
@@ -51,6 +56,14 @@ interface StarscoreInstance {
 
   emitChange(newValue: number): void
 
+  scoreValueFormat(e: MouseEvent): number | null
+
+  clickListener(e: MouseEvent): void
+
+  onScoreHoverHandler(e: MouseEvent): void
+
+  onScoreLeaveHandler(): void
+
   getScoreItemFromChild(target: HTMLElement): HTMLElement | null
 
   initCSSVars(): void
@@ -60,6 +73,8 @@ interface StarscoreInstance {
   generateRadioGroupHTML(): string
 
   generateRadioHTML(item: ScoreItemsRecord): string
+
+  generateScoreDescHTML(): string
 
   getIcon(): string
 
