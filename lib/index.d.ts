@@ -37,6 +37,10 @@ interface ScoreItemsRecord {
 interface StarscoreInstance {
   container: HTMLElement | null
 
+  value: number
+
+  get renderValue(): number
+
   get scoreItems(): ScoreItemsRecord[]
 
   setOptions(opts: StarscoreOptions, reRender?: boolean): StarscoreInstance

@@ -39,6 +39,8 @@ export interface StarscoreInstance {
 
   value: number
 
+  hoverValue: number | null
+
   get renderValue(): number
 
   get scoreItems(): ScoreItemsRecord[]
@@ -50,6 +52,14 @@ export interface StarscoreInstance {
   getValue(): number
 
   emitChange(newValue: number): void
+
+  scoreValueFormat(e: MouseEvent): number | null
+
+  clickListener(e: MouseEvent): void
+
+  onScoreHoverHandler(e: MouseEvent): void
+
+  onScoreLeaveHandler(): void
 
   getScoreItemFromChild(target: HTMLElement): HTMLElement | null
 

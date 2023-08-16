@@ -58,6 +58,8 @@ class Starscore implements StarscoreInstance {
 
   value: number = 0
 
+  hoverValue: number | null = null
+
   setValue(value: number) {
     if (value < 0) {
       this.value = 0
@@ -91,6 +93,8 @@ class Starscore implements StarscoreInstance {
     this.value = this.options.initialValue
 
     this.clickListener = this.clickListener.bind(this)
+    this.onScoreHoverHandler = this.onScoreHoverHandler.bind(this)
+    this.onScoreLeaveHandler = this.onScoreLeaveHandler.bind(this)
 
     this.initCSSVars()
 
@@ -112,7 +116,7 @@ class Starscore implements StarscoreInstance {
   }
 
   get renderValue() {
-    return this.value
+    return this.hoverValue !== null ? this.hoverValue : this.value
   }
 
   get scoreItems() {
@@ -191,17 +195,35 @@ class Starscore implements StarscoreInstance {
     }
   }
 
+  onScoreHoverHandler(e: MouseEvent) {
+    const value = this.scoreValueFormat(e)
+
+    if (value !== null && this.hoverValue !== value) {
+      this.hoverValue = value
+      this.render()
+    }
+  }
+
+  onScoreLeaveHandler() {
+    this.hoverValue = null
+    this.render()
+  }
+
   registerListeners() {
     this.removeListeners()
 
     this.getScoreItemEl().forEach((el) => {
       el.addEventListener('click', this.clickListener)
+      el.addEventListener('mouseenter', this.onScoreHoverHandler)
+      el.addEventListener('mouseleave', this.onScoreLeaveHandler)
     })
   }
 
   removeListeners() {
     this.getScoreItemEl().forEach((el) => {
       el.removeEventListener('click', this.clickListener)
+      el.removeEventListener('mouseenter', this.onScoreHoverHandler)
+      el.removeEventListener('mouseleave', this.onScoreLeaveHandler)
     })
   }
 
