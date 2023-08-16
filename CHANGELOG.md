@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.5.0
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.4.1...v1.5.0)
+
+### 🚀 Enhancements
+
+- Support show score when mouse hover ([1ecb58d](https://github.com/vcjs-dev/starscore/commit/1ecb58d))
+- Add show score description feature ([f0fe69a](https://github.com/vcjs-dev/starscore/commit/f0fe69a))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.4.1
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.4.0...v1.4.1)
