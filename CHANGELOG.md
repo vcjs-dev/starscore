@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.5.2
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.5.1...v1.5.2)
+
+### 🏡 Chore
+
+- **example:** Add header ([ba92a70](https://github.com/vcjs-dev/starscore/commit/ba92a70))
+- Use readonly declare getter property of class ([46f2966](https://github.com/vcjs-dev/starscore/commit/46f2966))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.5.1
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.5.0...v1.5.1)
