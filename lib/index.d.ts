@@ -44,9 +44,9 @@ interface StarscoreInstance {
 
   hoverValue: number | null
 
-  get renderValue(): number
+  readonly renderValue: number
 
-  get scoreItems(): ScoreItemsRecord[]
+  readonly scoreItems: ScoreItemsRecord[]
 
   setOptions(opts: StarscoreOptions, reRender?: boolean): StarscoreInstance
 

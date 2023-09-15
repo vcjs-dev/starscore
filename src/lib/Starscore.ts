@@ -58,6 +58,8 @@ class Starscore implements StarscoreInstance {
   hoverValue: number | null = null
 
   setValue(value: number) {
+    if (this.value === value) return this
+
     if (value < 0) {
       this.value = 0
     } else if (value > this.options.count) {
