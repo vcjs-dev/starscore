@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.3
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.5.2...v1.5.3)
+
+### 🔥 Performance
+
+- Upgrade setValue method in same value setting ([9e25eb6](https://github.com/vcjs-dev/starscore/commit/9e25eb6))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.5.2
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.5.1...v1.5.2)
