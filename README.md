@@ -12,6 +12,8 @@
 
 A star-score library for web app.
 
+- [Release Notes](./CHANGELOG.md).
+
 # Features
 
 - Create star-score component via **SVG**.
@@ -117,7 +119,3 @@ Destory the star-score instance.
 ```ts
 starscoreInstance.destory()
 ```
-
-# CHANGE LOGS
-
-See [change log](./CHANGELOG.md) here.
