@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.6.0
+
+[compare changes](https://github.com/vcjs-dev/starscore/compare/v1.5.3...v1.6.0)
+
+### 🚀 Enhancements
+
+- Upgrade all deps to latest version ([a335ca8](https://github.com/vcjs-dev/starscore/commit/a335ca8))
+
+### 🏡 Chore
+
+- Ignore output dir ([0987e2e](https://github.com/vcjs-dev/starscore/commit/0987e2e))
+- Update readme ([d8a0406](https://github.com/vcjs-dev/starscore/commit/d8a0406))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.5.3
 
 [compare changes](https://github.com/vcjs-dev/starscore/compare/v1.5.2...v1.5.3)
